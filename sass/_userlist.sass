@@ -1,0 +1,74 @@
+.user-list
+  &-cont
+    &-header
+      ul
+        list-style: none
+        padding: 10px
+        margin: 0
+        display: flex
+        justify-content: space-between
+        border: 1px solid
+        li
+          word-wrap: break-word
+          margin: 5px
+          padding: 5px
+          color: $main_white
+          width: 15%
+          flex-basis: 15%
+          text-align: center
+          background: $main_bg01
+          &:nth-child(7)
+            width: 5%
+            flex-basis: 5%
+            background: none
+          &:nth-child(8)
+            width: 5%
+            flex-basis: 5%
+            background: none
+    &-wrap
+      ul
+        list-style: none
+        padding: 10px
+        margin: 0
+        display: flex
+        justify-content: space-between
+        border: 1px solid
+        &:nth-child(odd)
+          background: $main_bg02
+        li
+          word-wrap: break-word
+          padding: 5px
+          width: 15%
+          flex-basis: 15%
+          text-align: center
+          span
+            cursor: pointer
+            transition: 0.3s
+            text-decoration: none
+            &:hover
+              transition: 0.3s
+              text-decoration: underline
+          &:nth-child(7)
+            width: 5%
+            flex-basis: 5%
+          &:nth-child(8)
+            width: 5%
+            flex-basis: 5%
+  &-btn
+    margin-top: 20px
+    a
+      padding: 10px
+      border: 1px solid $main_color
+      text-transform: uppercase
+      color: $main_white
+      background: $main_bg01
+      text-decoration: none
+      transition: 0.3s
+      display: block
+      margin-left: auto
+      width: 300px
+      max-width: 100%
+      text-align: center
+      &:hover
+        color: $main_color
+        background: $main_bg02
