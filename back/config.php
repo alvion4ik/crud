@@ -59,6 +59,31 @@
             }
 
         }
+        public function deleteUser($db_connect, $uId) {
+            $mdel = $db_connect->prepare('DELETE FROM testwork WHERE id=:id');
+            $mdel->bindParam(':id', $uId, PDO::PARAM_INT);
+            if ($mdel->execute()) {
+                echo 'Delete successfully';
+                header('location: /index.php');
+            } else {
+                echo 'Delete fail';
+            }
+        }
+
+        public function updateUser($db_connect, $id, $firstname, $lastname, $email) {
+            $sql = 'UPDATE testwork SET firstname=:firstname, lastname=:lastname, email=:email WHERE id=:id';
+            $mupd = $db_connect->prepare($sql);
+            $mupd->bindParam(':id', $id, PDO::PARAM_INT);
+            $mupd->bindParam(':firstname', $firstname);
+            $mupd->bindParam(':lastname', $lastname);
+            $mupd->bindParam(':email', $email);
+            if ($mupd->execute()) {
+                echo 'Update successfully';
+                header('location: /index.php');
+            } else {
+                echo 'Update fail';
+            }
+        }
     }
 
     $objCrudDb = new CrudDb('localhost', 'crud', 'admin', 'admin123');
