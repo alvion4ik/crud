@@ -47,7 +47,7 @@
         }
 
         public function createUser($db_connect, $firstname, $lastname, $email) {
-            $myInsert = $db_connect->prepare("INSERT INTO testwork (firstname, lastname, email) VALUES (:firstname, :lastname, :email)");
+            $myInsert = $db_connect->prepare('INSERT INTO testwork (firstname, lastname, email) VALUES (:firstname, :lastname, :email)');
             $myInsert->bindParam(':firstname', $firstname);
             $myInsert->bindParam(':lastname', $lastname);
             $myInsert->bindParam(':email', $email);

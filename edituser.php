@@ -1,8 +1,8 @@
 
 <?php
-require_once ('back/config.php');
-require_once ('header.php');
-$result = $objCrudDb->showUserById($my_Db_Connection, $_GET['id']);
+    require_once ('back/config.php');
+    require_once ('header.php');
+    $result = $objCrudDb->showUserById($my_Db_Connection, $_GET['id']);
 ?>
 
 
