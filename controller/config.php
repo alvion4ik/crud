@@ -22,6 +22,21 @@
                 echo 'Connection error: ' . $error->getMessage();
             }
         }
+
+        public function dbShow ($db_connect) {
+            foreach ($db_connect->query('SELECT * FROM testwork') as $row) {
+                echo "<ul>";
+                echo "<li>" . $row['id'] . "</li>";
+                echo "<li>" . $row['firstname'] . "</li>";
+                echo "<li>" . $row['lastname'] . "</li>";
+                echo "<li>" . $row['email'] . "</li>";
+                echo "<li>" . $row['createDate'] . "</li>";
+                echo "<li>" . $row['updateDate'] . "</li>";
+                echo "<li><a href='edituser.php?id=" . $row['id'] . "'>Edit</a></li>";
+                echo "<li><a href='controller/deleteuser.php?id=" . $row['id'] . "'>delete</a></li>";
+                echo "</ul>";
+            }
+        }
     }
 
     $objCrudDb = new CrudDb('localhost', 'crud', 'admin', 'admin123');

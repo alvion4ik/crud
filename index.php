@@ -1,10 +1,7 @@
 <?php
 require_once ('controller/config.php');
 require_once ('header.php');
-$sql = 'SELECT * FROM testwork';
 ?>
-
-
     <div class="user-list">
         <div class="user-list-cont">
             <div class="user-list-cont-header">
@@ -21,19 +18,7 @@ $sql = 'SELECT * FROM testwork';
             </div>
             <!-- /.user-list-cont-header -->
             <div class="user-list-cont-wrap">
-                    <?php
-                    foreach($my_Db_Connection->query($sql) as $row) {
-                        echo "<ul>";
-                        echo "<li>" . $row['id'] . "</li>";
-                        echo "<li>" . $row['firstname'] . "</li>";
-                        echo "<li>" . $row['lastname'] . "</li>";
-                        echo "<li>" . $row['email'] . "</li>";
-                        echo "<li>" . $row['createDate'] . "</li>";
-                        echo "<li>" . $row['updateDate'] . "</li>";
-                        echo "<li><a href='edituser.php?id=" . $row['id'] . "'>Edit</a></li>";
-                        echo "<li><a href='controller/deleteuser.php?id=" . $row['id'] . "'>delete</a></li>";
-                        echo "</ul>";
-                    } ?>
+                    <?php $objCrudDb->dbShow($my_Db_Connection); ?>
             </div>
             <!-- /.user-list-cont-wrap -->
         </div>
@@ -44,4 +29,5 @@ $sql = 'SELECT * FROM testwork';
         <!-- /.user-list-btn -->
     </div>
     <!-- /.user-list -->
+
 <?php require_once ('footer.php'); ?>
