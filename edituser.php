@@ -2,13 +2,7 @@
 <?php
 require_once ('controller/config.php');
 require_once ('header.php');
-$id = $_GET['id'];
-$sql = 'SELECT * FROM testwork WHERE id=:id';
-$mupd = $my_Db_Connection->prepare($sql);
-$mupd->bindParam(':id', $id, PDO::PARAM_INT);
-$mupd->execute();
-$result = $mupd->fetch(PDO::FETCH_ASSOC);
-
+$result = $objCrudDb->showUserById($my_Db_Connection, $_GET['id']);
 ?>
 
 

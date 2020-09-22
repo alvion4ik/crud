@@ -37,6 +37,14 @@
                 echo "</ul>";
             }
         }
+
+        public function showUserById ($db_connect, $uId) {
+            $mupd = $db_connect->prepare('SELECT * FROM testwork WHERE id=:id');
+            $mupd->bindParam(':id', $uId, PDO::PARAM_INT);
+            $mupd->execute();
+            $result = $mupd->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
     }
 
     $objCrudDb = new CrudDb('localhost', 'crud', 'admin', 'admin123');
