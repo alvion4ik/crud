@@ -18,7 +18,7 @@
             </div>
             <!-- /.user-list-cont-header -->
             <div class="user-list-cont-wrap">
-                    <?php $objCrudDb->dbShow($my_Db_Connection); ?>
+                    <?php $objCrudDb->dbShow(); ?>
             </div>
             <!-- /.user-list-cont-wrap -->
         </div>
