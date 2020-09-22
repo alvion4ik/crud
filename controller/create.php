@@ -3,6 +3,8 @@
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
+
+
     $myInsert = $my_Db_Connection->prepare("INSERT INTO testwork (firstname, lastname, email) VALUES (:firstname, :lastname, :email)");
     $myInsert->bindParam(':firstname', $firstname);
     $myInsert->bindParam(':lastname', $lastname);
