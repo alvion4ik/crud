@@ -1,5 +1,5 @@
 <?php
-require_once ('controller/config.php');
+require_once ('back/config.php');
 require_once ('header.php');
 ?>
     <div class="user-list">

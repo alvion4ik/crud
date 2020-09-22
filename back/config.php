@@ -33,7 +33,7 @@
                 echo "<li>" . $row['createDate'] . "</li>";
                 echo "<li>" . $row['updateDate'] . "</li>";
                 echo "<li><a href='edituser.php?id=" . $row['id'] . "'>Edit</a></li>";
-                echo "<li><a href='controller/deleteuser.php?id=" . $row['id'] . "'>delete</a></li>";
+                echo "<li><a href='back/deleteuser.php?id=" . $row['id'] . "'>delete</a></li>";
                 echo "</ul>";
             }
         }
@@ -44,6 +44,20 @@
             $mupd->execute();
             $result = $mupd->fetch(PDO::FETCH_ASSOC);
             return $result;
+        }
+
+        public function createUser($db_connect, $firstname, $lastname, $email) {
+            $myInsert = $db_connect->prepare("INSERT INTO testwork (firstname, lastname, email) VALUES (:firstname, :lastname, :email)");
+            $myInsert->bindParam(':firstname', $firstname);
+            $myInsert->bindParam(':lastname', $lastname);
+            $myInsert->bindParam(':email', $email);
+            if ($myInsert->execute()) {
+                echo 'New record created successfully';
+                header('location: /index.php');
+            } else {
+                echo 'Unable to create record';
+            }
+
         }
     }
 
